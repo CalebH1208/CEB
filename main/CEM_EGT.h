@@ -13,19 +13,18 @@
 
 #define SPI_BUS_SPEED 5000000
 
+#define EGT_TEMP_MASK 0b0111111111111100
 
 typedef struct {
     spi_device_handle_t* device;
     spi_host_device_t host;
-    gpio_num_t EGT_gpio;
     gpio_num_t miso;
     gpio_num_t clk;
     gpio_num_t nss;
 }EGT_handle_t;
 
-
 esp_err_t EGT_init(EGT_handle_t * handle);
 
-esp_err_t EGT_sample(EGT_handle_t * handle,uint16_t* data);
+esp_err_t EGT_sample(EGT_handle_t * handle, float* data);
 
 #endif //CEM_EGT_H
